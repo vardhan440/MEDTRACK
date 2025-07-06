@@ -1,0 +1,21 @@
+<!-- book_appointment.html -->
+{% extends "base.html" %}
+{% block title %}Book Appointment{% endblock %}
+{% block content %}
+  <div class="container">
+    <h2>Book Appointment</h2>
+    <form method="POST">
+      <label for="doctor_email">Select Doctor:</label>
+      <select name="doctor_email" id="doctor_email" required>
+        {% for email, name in doctors %}
+          <option value="{{ email }}">Dr. {{ name }}</option>
+        {% endfor %}
+      </select>
+      <label for="date">Date:</label>
+      <input type="date" name="date" id="date" required>
+      <label for="time">Time:</label>
+      <input type="time" name="time" id="time" required>
+      <button type="submit" class="btn">Book</button>
+    </form>
+  </div>
+{% endblock %}
